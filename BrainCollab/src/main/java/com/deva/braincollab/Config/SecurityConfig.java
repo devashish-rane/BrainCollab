@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.deva.braincollab.Service.UserService;
 
@@ -24,10 +25,14 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable()
         .authorizeHttpRequests()
-        .requestMatchers("/create_user").permitAll()
         .anyRequest().authenticated()
         .and()
-        .httpBasic();
+        .formLogin()
+        .defaultSuccessUrl("/api/get_user/1", true)
+        .permitAll()
+        .and()
+        .logout()
+        .permitAll();
 	      
             
 		return http.build();
