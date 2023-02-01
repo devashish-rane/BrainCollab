@@ -3,10 +3,12 @@ package com.deva.braincollab.Service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.deva.braincollab.Entity.User;
 import com.deva.braincollab.Repository.UserRepo;
 
+@Service
 public class UserService {
 	
 	@Autowired
@@ -14,7 +16,7 @@ public class UserService {
 	
 	public long createNewUser(User userData) {
 		userRepo.save(userData);
-		return userData.getId();
+		return userData.getUserId();
 	}
 	
 	public Optional<User> getUser(long id) {

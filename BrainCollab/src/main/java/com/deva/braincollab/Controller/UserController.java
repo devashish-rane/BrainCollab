@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.deva.braincollab.Entity.User;
 import com.deva.braincollab.Service.UserService;
 
 @RestController
-@Controller
+@RequestMapping("/api")
 public class UserController {
 	
 	@Autowired
@@ -24,7 +25,7 @@ public class UserController {
 	
 	@GetMapping("/get_user/{id}")
 	public ResponseEntity<?> getUserApi(@PathVariable("id") long id){
-		System.out.println("dev");
+
 		Optional<User> user = userService.getUser(id);
 		if(user.isPresent()) {
 			return new ResponseEntity<>(user,HttpStatus.OK);

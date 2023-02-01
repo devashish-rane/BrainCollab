@@ -19,7 +19,7 @@ public class Blog {
 	private long id;
 	private String name;
 	private String text;
-	private List<User> writers;
+//	private List<User> writers;
 	private Date creationDate;
 	private Date updatedDate;
 	

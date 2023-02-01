@@ -7,9 +7,9 @@ spring:
       username: root
       password: pass
    jpa:
-      database-platform: org.hibernate.dialect.MySQL8Dialect
+      database-platform: org.hibernate.dialect.MySQLDialect
       hibernate:
-         ddl-auto: create
+         ddl-auto: update
       generate-ddl: true
    security:
       user:
