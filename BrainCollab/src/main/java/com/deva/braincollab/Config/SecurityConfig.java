@@ -28,7 +28,7 @@ public class SecurityConfig {
         .anyRequest().authenticated()
         .and()
         .formLogin()
-        .defaultSuccessUrl("/api/get_user/1", true)
+        .defaultSuccessUrl("/home", true)
         .permitAll()
         .and()
         .logout()
