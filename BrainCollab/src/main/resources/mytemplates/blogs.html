@@ -7,11 +7,14 @@
     </head>
     <body>
         <p>
-        Home Page
+        Blogs Page
         </p>
-        <a href="logout"><button>Logout</button></a>
-        <a href="blogs/1"><button>Blogs</button></a>
+        <a href="../logout"><button>Logout</button></a>
         
         <p>Username : <span th:text="${username}"></span></p>
+        
+        <div th:each="blog : ${blog_list}">
+         	<p th:text="${blog.name}"></p>
+         </div>
     </body>
 </html>

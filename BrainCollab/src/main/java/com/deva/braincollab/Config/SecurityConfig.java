@@ -23,9 +23,13 @@ public class SecurityConfig {
 	UserDetailsService userDetailsService;
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.csrf().disable()
+		http.csrf().disable().httpBasic()
+		.and()
         .authorizeHttpRequests()
+        .requestMatchers("/api/create_user").permitAll()
         .anyRequest().authenticated()
+        .and()
+        .httpBasic()
         .and()
         .formLogin()
         .defaultSuccessUrl("/home", true)
